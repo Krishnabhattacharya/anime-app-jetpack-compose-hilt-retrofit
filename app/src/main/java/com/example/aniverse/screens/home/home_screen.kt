@@ -62,7 +62,7 @@ import com.example.aniverse.viewmodel.AnimeViewModel
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter", "ResourceAsColor", "SuspiciousIndentation")
 
 @Composable
-fun HomeScreen(navController: NavController, viewModel: AnimeViewModel = hiltViewModel()) {
+fun HomeScreen(navController: NavController, viewModel: AnimeViewModel ) {
     val topAnime by viewModel.topAnime.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
     val errorMessage by viewModel.errorMessage.collectAsState()

@@ -57,7 +57,7 @@ import com.example.aniverse.viewmodel.AnimeViewModel
 
 @SuppressLint("StateFlowValueCalledInComposition")
 @Composable
-fun AllEpisodesScreen(navController: NavController,viewModel: AllEpisodeViewModel = hiltViewModel(),url:String,id:Int,index:Int,topanimeviewmodel:AnimeViewModel= hiltViewModel()) {
+fun AllEpisodesScreen(navController: NavController,viewModel: AllEpisodeViewModel = hiltViewModel(),url:String,id:Int,index:Int,topanimeviewmodel:AnimeViewModel) {
     val allanimeEpisode by viewModel.getAllEpisode.collectAsState()
     val topAnime by topanimeviewmodel.topAnime.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
@@ -76,7 +76,7 @@ fun AllEpisodesScreen(navController: NavController,viewModel: AllEpisodeViewMode
                         .height(300.dp)
                 ) {
                     Column {
-                     //   YoutubeScreen(videoId =url,Modifier.fillMaxSize())
+                       YoutubeScreen(videoId =url,Modifier.fillMaxSize())
 //                        AsyncImage(
 //                            model = ImageRequest.Builder(LocalContext.current)
 //                                .data("https://img1.ak.crunchyroll.com/i/spire1-tmb/fccf5fe3454a077e0d68299b7453e5121711114121_large.jpg")
@@ -174,12 +174,13 @@ fun AllEpisodesScreen(navController: NavController,viewModel: AllEpisodeViewMode
                            textAlign = TextAlign.Left,
                            fontSize = 22.sp
                        )
+                       Spacer(modifier = Modifier.height(10.dp))
                        Text(
                            text = topanimeviewmodel.topAnime.value.get(index).synopsis,
                            color = Color.White,
-                           style = MaterialTheme.typography.bodyMedium,
+                           style = TextStyle(fontWeight = FontWeight.W500),
                            textAlign = TextAlign.Left,
-                           fontSize = 22.sp
+                           fontSize = 15.sp
                        )
 
                    }

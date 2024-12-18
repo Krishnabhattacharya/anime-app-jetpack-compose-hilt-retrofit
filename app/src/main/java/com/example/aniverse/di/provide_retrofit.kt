@@ -31,15 +31,15 @@ object NetworkModule {
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://api.jikan.moe/v4/") // Base API URL
-            .client(okHttpClient) // Use the custom OkHttpClient
-            .addConverterFactory(GsonConverterFactory.create()) // JSON to Kotlin object conversion
+            .baseUrl("https://api.jikan.moe/v4/")
+            .client(okHttpClient)
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 
     @Provides
     @Singleton
     fun provideApiService(retrofit: Retrofit): ApiService {
-        return retrofit.create(ApiService::class.java) // Create ApiService instance
+        return retrofit.create(ApiService::class.java)
     }
 }

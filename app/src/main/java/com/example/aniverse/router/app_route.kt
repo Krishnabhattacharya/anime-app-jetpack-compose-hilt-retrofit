@@ -15,10 +15,11 @@ import com.example.aniverse.viewmodel.AnimeViewModel
 @Composable
 fun AppNavHost() {
     val navController = rememberNavController()
+    val topanimeviewmodel: AnimeViewModel = hiltViewModel()
 
     NavHost(navController = navController, startDestination = "homepage") {
         composable("homepage") {
-            HomeScreen(navController = navController, )
+            HomeScreen(navController = navController,topanimeviewmodel )
         }
         composable(
             route = "all-episode/{id}/{url}/{index}",
@@ -37,8 +38,8 @@ fun AppNavHost() {
                 navController.popBackStack()
                 return@composable
             }
-
             AllEpisodesScreen(
+                topanimeviewmodel=topanimeviewmodel,
                 navController = navController,
                 id = id,
                 url = url,
